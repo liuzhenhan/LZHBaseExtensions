@@ -2,7 +2,7 @@
 //  String+extension.swift
 //  LZHExtensionsDemo
 //
-//  Created by QD202010282474A on 2021/4/15.
+//  Created by lzh on 2021/4/15.
 //
 
 import Foundation

@@ -2,7 +2,7 @@
 //  ZHLocationManger.swift
 //  LZHExtensionsDemo
 //
-//  Created by QD202010282474A-刘振汉 on 2021/5/12.
+//  Created by lzh on 2021/5/12.
 //
 
 import UIKit
@@ -39,11 +39,11 @@ import CoreLocation
     }
 
 
-    @objc public func requestLocation(_ neuLocationAuthorization:ZHLocationAuthorization,Province province: @escaping ((String)->()),City city:@escaping ((String)->()),Location location:@escaping ((CLLocationCoordinate2D)->()), locationError:@escaping(NSError?)->()) {
+    @objc public func requestLocation(_ locationAuthorization:ZHLocationAuthorization,Province province: @escaping ((String)->()),City city:@escaping ((String)->()),Location location:@escaping ((CLLocationCoordinate2D)->()), locationError:@escaping(NSError?)->()) {
 
         if Float(UIDevice.current.systemVersion)! >= 8 {
 
-            switch neuLocationAuthorization {
+            switch locationAuthorization {
             case .requestWhenInUseAuthorization:
                 //前台开启定位
                 locationManager.requestWhenInUseAuthorization()

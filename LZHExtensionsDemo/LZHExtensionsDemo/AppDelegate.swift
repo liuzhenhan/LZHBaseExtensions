@@ -14,6 +14,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        let tools = ZHLocationManger.shared
+        tools.requestLocation(.allAuthorization) {province in
+            print("=================\(province)")
+
+        } City: { city in
+            print("=================\(city)")
+
+        } Location: { cLLocationCoordinate2D in
+            print("=================\(cLLocationCoordinate2D)")
+
+        } locationError: { error in
+            print(error ?? "111")
+        }
+
+
+
         return true
     }
 

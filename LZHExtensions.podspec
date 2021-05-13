@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "LZHExtensions"
-s.version      = "1.0.4"
+s.version      = "1.0.5"
 s.license = { :type => "MIT", :file => "LICENSE" }
 s.summary      = "新增获取位置以及逆地理编码获取省市及经纬度"
 s.homepage     = "https://github.com/liuzhenhan/LZHBaseExtensions"

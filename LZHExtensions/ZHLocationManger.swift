@@ -172,6 +172,7 @@ import CoreLocation
 
             print("lng=\(newLocation.coordinate.longitude)")
 
+            self.successLocationBlock(CLLocationCoordinate2D(latitude: newLocation.coordinate.latitude, longitude: newLocation.coordinate.longitude))
 
             let geocoder = CLGeocoder.init()
 

@@ -1,7 +1,7 @@
 //
 //  Date+extension.swift
 //  LZHExtensionsDemo
-//
+// 
 //  Created by lzh on 2021/4/15.
 //
 
@@ -11,21 +11,21 @@ import Foundation
 extension Date {
 
     /// 获取当前 秒级 时间戳 - 10位
-    var getTimeStamp : Int {
+    public var getTimeStamp : Int {
         let timeInterval: TimeInterval = self.timeIntervalSince1970
         let timeStamp = Int(timeInterval)
         return timeStamp
     }
 
     /// 获取当前 毫秒级 时间戳 - 13位
-    var getMilliStamp : Int {
+    public var getMilliStamp : Int {
         let timeInterval: TimeInterval = self.timeIntervalSince1970
         let millisecond = Int(timeInterval) * 1000
         return millisecond
     }
 
     /// Date 格式化日期
-    func dateToDateString(_ date:Date,DateFormat dateFormat:String = "yyyy-MM-dd HH:mm") -> String {
+    public func dateToDateString(_ date:Date,DateFormat dateFormat:String = "yyyy-MM-dd HH:mm") -> String {
         let formatter = DateFormatter()
         formatter.locale = Locale.init(identifier: "zh_CN")
         formatter.dateFormat = dateFormat
@@ -34,7 +34,7 @@ extension Date {
     }
 
     /// 格式化日期转时间戳
-    func dateStringToDateTimeStamp(_ dateString:String,DateFormat dateFormat:String = "yyyy-MM-dd HH:mm")-> Int {
+    public func dateStringToDateTimeStamp(_ dateString:String,DateFormat dateFormat:String = "yyyy-MM-dd HH:mm")-> Int {
         let dfmatter = DateFormatter()
         dfmatter.dateFormat = dateFormat
         let date = dfmatter.date(from: dateString)

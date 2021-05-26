@@ -9,15 +9,15 @@ import UIKit
 import CoreLocation
 
 
-@objc enum ZHLocationAuthorization:Int {
+@objc public enum ZHLocationAuthorization:Int {
     case requestWhenInUseAuthorization =  0
     case requestAlwaysAuthorization = 1
     case allAuthorization = 2
  }
-@objc class ZHLocationManger: NSObject,CLLocationManagerDelegate {
+@objc public class ZHLocationManger: NSObject,CLLocationManagerDelegate {
     private let locationManager = CLLocationManager.init()
 
-    @objc static let shared = ZHLocationManger()
+    @objc public static let shared = ZHLocationManger()
 
     //城市
     private var successCityBlock:((String) -> ())!
@@ -69,7 +69,7 @@ import CoreLocation
         errorBlock = locationError
         locationManager.startUpdatingLocation()
     }
-    
+
     @objc public func stopUpdatingLocation() {
         locationManager.stopUpdatingLocation()
     }
@@ -78,7 +78,7 @@ import CoreLocation
     }
 
     @available(iOS, introduced: 4.2, deprecated: 14.0)
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         var error:NSError?
 
         switch status {
@@ -121,7 +121,7 @@ import CoreLocation
         errorBlock(error)
     }
     @available(iOS 14.0, *)
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    public func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
 
          var error:NSError?
 
@@ -165,7 +165,7 @@ import CoreLocation
 
 
 
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if (locations != nil) && (locations.count > 0) {
             let newLocation = locations[0]
             print("lat=\(newLocation.coordinate.latitude)")

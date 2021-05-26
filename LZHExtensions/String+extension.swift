@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 extension String {
 
-    func timeintervalToDate(interval:String,formart:String) -> String {
+    public func timeintervalToDate(interval:String,formart:String) -> String {
         let timeString = NSString(string: interval)
         let range = _NSRange(location: 0, length: 10)
         let suString = timeString.substring(with: range)
@@ -69,11 +69,11 @@ extension String {
     }
 
     /// 获得字符串的尺寸
-    func needTextRect(font: UIFont) -> CGRect {
+    public func needTextRect(font: UIFont) -> CGRect {
         return self.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 0), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
     }
     /// 汉字转拼音
-    func transformToPinYin()->String{
+    public func transformToPinYin()->String{
         let mutableString = NSMutableString(string: self)
         CFStringTransform(mutableString, nil, kCFStringTransformToLatin, false)
         CFStringTransform(mutableString, nil, kCFStringTransformStripDiacritics, false)
@@ -81,7 +81,7 @@ extension String {
         return string.replacingOccurrences(of: " ", with: "")
     }
     /// 判断是否包含表情及特殊符号
-    var containsEmoji:Bool {
+    public  var containsEmoji:Bool {
         for scalar in unicodeScalars {
             switch scalar.value {
             case 0x00A0...0x00AF,
@@ -98,7 +98,7 @@ extension String {
         return false
     }
     /// 替换字符串
-    func pregReplace(pattern: String, with: String,
+    public func pregReplace(pattern: String, with: String,
                      options: NSRegularExpression.Options = []) -> String {
         let regex = try! NSRegularExpression(pattern: pattern, options: options)
 
@@ -109,14 +109,14 @@ extension String {
     }
 
     /// 将原始的url编码为合法的url
-    func urlEncoded() -> String {
+    public  func urlEncoded() -> String {
         let encodeUrlString = self.addingPercentEncoding(withAllowedCharacters:
                                                             .urlQueryAllowed)
         return encodeUrlString ?? ""
     }
 
     /// 将编码后的url转换回原始的url
-    func urlDecoded() -> String {
+    public func urlDecoded() -> String {
         return self.removingPercentEncoding ?? ""
     }
 }
